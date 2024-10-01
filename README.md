@@ -1,12 +1,15 @@
 # mekari_aaie_challenge
 
 > video demo link: https://drive.google.com/file/d/1FzhZEBVjIlnEP0d8aFCqGePJ0__ZBMQX/view?usp=sharing
+
 > The dataset can be accessed from: https://drive.google.com/file/d/1_xaRB6d2K_9-1dUmdU0GjtaqPO7uQnTM/view
 
 > The program uses Google Gemini AI, LangChain, ChromaDB, and Streamlit
 
 > The Mekari Associate AI Engineer Challenge pdf is a file that contains System High-Level Architecture and some screenshots of demo
+
 > requirements.txt is a file containing libraries that needed to be install for the program to run
+
 > The Jupiter Notebook contains the code in a notebook environment and include some explanation of the code (More easy to comprehend because of the sections)
 
 spotify_backend.py contains the backend part of the program that consist of:
