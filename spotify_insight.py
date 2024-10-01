@@ -131,39 +131,39 @@ if submit_button:
                 )
                 time.sleep(typing_speed)
 
-            # Evaluate response quality
-            def evaluate_response_quality(docs, generated_response):
-                # Get vector representation of the context (input documents)
-                context_vectors = embeddings.embed_documents([doc.page_content for doc in docs])
+            # # Evaluate response quality
+            # def evaluate_response_quality(docs, generated_response):
+            #     # Get vector representation of the context (input documents)
+            #     context_vectors = embeddings.embed_documents([doc.page_content for doc in docs])
 
-                # Check if context_vectors are not empty
-                if not context_vectors or len(context_vectors) == 0:
-                    raise ValueError("Context vectors are empty.")
+            #     # Check if context_vectors are not empty
+            #     if not context_vectors or len(context_vectors) == 0:
+            #         raise ValueError("Context vectors are empty.")
 
-                # Get vector representation of the generated response
-                response_vector = embeddings.embed_query(generated_response)
+            #     # Get vector representation of the generated response
+            #     response_vector = embeddings.embed_query(generated_response)
 
-                # Check if response_vector is not empty
-                if response_vector is None or len(response_vector) == 0:
-                    raise ValueError("Failed to generate embedding for the response.")
+            #     # Check if response_vector is not empty
+            #     if response_vector is None or len(response_vector) == 0:
+            #         raise ValueError("Failed to generate embedding for the response.")
 
-                # Convert response vector to a NumPy array
-                response_vector = np.array(response_vector)
+            #     # Convert response vector to a NumPy array
+            #     response_vector = np.array(response_vector)
 
-                # Reshape if necessary
-                if len(response_vector.shape) == 1:
-                    response_vector = response_vector.reshape(1, -1)
+            #     # Reshape if necessary
+            #     if len(response_vector.shape) == 1:
+            #         response_vector = response_vector.reshape(1, -1)
 
-                # Calculate cosine similarity
-                similarities = cosine_similarity(response_vector, context_vectors)
-                avg_similarity = np.mean(similarities)
+            #     # Calculate cosine similarity
+            #     similarities = cosine_similarity(response_vector, context_vectors)
+            #     avg_similarity = np.mean(similarities)
 
-                return avg_similarity
+            #     return avg_similarity
 
-            try:
-                quality_score = evaluate_response_quality(docs, full_response)
-                st.write(f"**Response Quality Score:** {quality_score:.2f}")
-            except ValueError as e:
-                st.error(f"Error evaluating response quality: {str(e)}")
+            # try:
+            #     quality_score = evaluate_response_quality(docs, full_response)
+            #     st.write(f"**Response Quality Score:** {quality_score:.2f}")
+            # except ValueError as e:
+            #     st.error(f"Error evaluating response quality: {str(e)}")
     else:
         st.error("Please enter a question.")
